@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="div">
+
+<input type="text" id="myText" value="">
+
+
+<button onclick="myFunction()">Hozzáad</button>
+<button onclick="myFunction1()">Töröl</button>
+
+<p id="demo"></p>
+
+</div>
+
+<p>Ami itt van felül csak az alsó törlés gombal lehet kitötölni.</p>
+
+<form action="" method="get">
+    <table width="766"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="191"><input type="text" name="textfield_a" /></td>
+       
+  
+    <td width="98"><select name="select">
+      
+      
+  
+    </select></td>
+    <td width="286"><input name="button" type="button" value="Hozzáad" onclick="addRow(this.parentNode.parentNode)"></td>
+  </tr>
+    </table><br /><br />
+    <input name="" type="submit" value="Töröl" />
+  </form>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myText").value;
+  document.getElementById("demo").innerHTML = x;
+}
+function addRow(r){
+var root = r.parentNode;//the root
+var allRows = root.getElementsByTagName('tr');//the rows' collection
+var cRow = allRows[0].cloneNode(true)//the clone of the 1st row
+var cInp = cRow.getElementsByTagName('input');//the inputs' collection of the 1st row
+for(var i=0;i<cInp.length;i++){//changes the inputs' names (indexes the names)
+cInp[i].setAttribute('name',cInp[0].getAttribute('name')+'_'+(allRows.length+1))
+}
+var cSel = cRow.getElementsByTagName('select')[0];
+cSel.setAttribute('name',cSel.getAttribute('name')+'_'+(allRows.length+1));//change the selecet's name
+root.appendChild(cRow);//appends the cloned row as a new row
+}
+</script>
+
+</body>
+</html>
