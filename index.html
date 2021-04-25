@@ -47,15 +47,15 @@ function myFunction() {
 }
 function addRow(r){
 var root = r.parentNode;//the root
-var allRows = root.getElementsByTagName('tr');//the rows' collection
-var cRow = allRows[0].cloneNode(true)//the clone of the 1st row
-var cInp = cRow.getElementsByTagName('input');//the inputs' collection of the 1st row
-for(var i=0;i<cInp.length;i++){//changes the inputs' names (indexes the names)
+var allRows = root.getElementsByTagName('tr');
+var cRow = allRows[0].cloneNode(true)
+var cInp = cRow.getElementsByTagName('input');
+for(var i=0;i<cInp.length;i++){
 cInp[i].setAttribute('name',cInp[0].getAttribute('name')+'_'+(allRows.length+1))
 }
 var cSel = cRow.getElementsByTagName('select')[0];
-cSel.setAttribute('name',cSel.getAttribute('name')+'_'+(allRows.length+1));//change the selecet's name
-root.appendChild(cRow);//appends the cloned row as a new row
+cSel.setAttribute('name',cSel.getAttribute('name')+'_'+(allRows.length+1));
+root.appendChild(cRow);
 }
 </script>
 
